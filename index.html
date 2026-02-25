@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – Soft BI</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:   #1a56db;
+      --primary-dk:#1440a8;
+      --bg:        #f5f7fa;
+      --card:      #ffffff;
+      --text:      #1e2533;
+      --muted:     #5a6478;
+      --border:    #dde2ed;
+      --accent:    #e8f0fe;
+      --radius:    12px;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, var(--primary-dk) 0%, var(--primary) 100%);
+      color: #fff;
+      padding: 56px 24px 48px;
+      text-align: center;
+    }
+
+    .app-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 32px;
+      padding: 6px 18px;
+      font-size: .82rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .app-badge svg { width: 16px; height: 16px; fill: currentColor; }
+
+    header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      margin-bottom: 12px;
+    }
+
+    header h1 span { opacity: .75; font-weight: 400; }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 20px;
+      font-size: .88rem;
+      opacity: .85;
+    }
+
+    .meta-item { display: flex; align-items: center; gap: 6px; }
+    .meta-item svg { width: 15px; height: 15px; fill: currentColor; flex-shrink: 0; }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 72px;
+    }
+
+    /* ── Table of Contents ── */
+    .toc {
+      background: var(--accent);
+      border: 1px solid #c2d4fc;
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-bottom: 40px;
+    }
+
+    .toc h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .toc ol {
+      padding-left: 20px;
+      columns: 2;
+      column-gap: 32px;
+    }
+
+    .toc li { margin-bottom: 6px; break-inside: avoid; }
+
+    .toc a {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: .9rem;
+    }
+
+    .toc a:hover { text-decoration: underline; }
+
+    @media (max-width: 540px) { .toc ol { columns: 1; } }
+
+    /* ── Sections ── */
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 36px;
+      margin-bottom: 24px;
+      scroll-margin-top: 24px;
+    }
+
+    @media (max-width: 600px) { .section { padding: 24px 20px; } }
+
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .section-number {
+      background: var(--primary);
+      color: #fff;
+      border-radius: 8px;
+      min-width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .85rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .section h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      padding-top: 6px;
+    }
+
+    .section p { color: var(--muted); margin-bottom: 14px; }
+    .section p:last-child { margin-bottom: 0; }
+
+    .section h3 {
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 20px 0 8px;
+    }
+
+    .section ul, .section ol {
+      padding-left: 20px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .section li { margin-bottom: 6px; }
+
+    .section a { color: var(--primary); }
+    .section a:hover { text-decoration: underline; }
+
+    /* ── Tables ── */
+    .table-wrap { overflow-x: auto; margin: 16px 0; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .9rem;
+    }
+
+    thead th {
+      background: var(--accent);
+      color: var(--primary);
+      font-weight: 700;
+      text-align: left;
+      padding: 12px 16px;
+      border-bottom: 2px solid #c2d4fc;
+    }
+
+    tbody td {
+      padding: 11px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      vertical-align: top;
+    }
+
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover td { background: #fafbff; }
+
+    /* ── Highlight box ── */
+    .highlight {
+      background: #f0fdf4;
+      border-left: 4px solid #22c55e;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: .92rem;
+      color: #166534;
+    }
+
+    .note {
+      background: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: .92rem;
+      color: #78350f;
+    }
+
+    /* ── Contact card ── */
+    .contact-card {
+      background: linear-gradient(135deg, var(--primary-dk), var(--primary));
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 32px 36px;
+      margin-bottom: 24px;
+    }
+
+    .contact-card h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .contact-card p { opacity: .9; margin-bottom: 6px; font-size: .95rem; }
+    .contact-card a { color: #a5c8ff; }
+    .contact-card a:hover { color: #fff; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      font-size: .83rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    footer strong { color: var(--text); }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════ HEADER ════════════════ -->
+<header>
+  <div class="app-badge">
+    <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+    Mobile Application
+  </div>
+  <h1>Privacy Policy <span>/ Soft BI</span></h1>
+  <div class="meta">
+    <span class="meta-item">
+      <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
+      Effective Date: 25 February 2026
+    </span>
+    <span class="meta-item">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+      Last Updated: 25 February 2026
+    </span>
+    <span class="meta-item">
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      Softnet — TCB Bank
+    </span>
+  </div>
+</header>
+
+<!-- ════════════════ CONTENT ════════════════ -->
+<div class="container">
+
+  <!-- Table of Contents -->
+  <div class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#s1">Introduction</a></li>
+      <li><a href="#s2">Who We Are</a></li>
+      <li><a href="#s3">Information We Collect</a></li>
+      <li><a href="#s4">How We Use Your Information</a></li>
+      <li><a href="#s5">Data Storage</a></li>
+      <li><a href="#s6">Data Sharing</a></li>
+      <li><a href="#s7">Third-Party Services &amp; SDKs</a></li>
+      <li><a href="#s8">Session Management</a></li>
+      <li><a href="#s9">Data Retention</a></li>
+      <li><a href="#s10">Security</a></li>
+      <li><a href="#s11">Children's Privacy</a></li>
+      <li><a href="#s12">Your Rights</a></li>
+      <li><a href="#s13">Changes to This Policy</a></li>
+      <li><a href="#s14">Contact Us</a></li>
+    </ol>
+  </div>
+
+  <!-- 1. Introduction -->
+  <div class="section" id="s1">
+    <div class="section-header">
+      <div class="section-number">1</div>
+      <h2>Introduction</h2>
+    </div>
+    <p>
+      Soft BI ("the App") is a business intelligence mobile application developed for authorized users of
+      TCB Bank. This Privacy Policy explains how we collect, use, store, and protect information when
+      you use the App.
+    </p>
+    <div class="highlight">
+      By using the App, you agree to the practices described in this policy.
+    </div>
+  </div>
+
+  <!-- 2. Who We Are -->
+  <div class="section" id="s2">
+    <div class="section-header">
+      <div class="section-number">2</div>
+      <h2>Who We Are</h2>
+    </div>
+    <p>
+      The App is operated by <strong>Softnet</strong> on behalf of TCB Bank. For any privacy-related
+      inquiries, please contact us at:
+    </p>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:support@softnet.co.tz">support@softnet.co.tz</a></li>
+    </ul>
+  </div>
+
+  <!-- 3. Information We Collect -->
+  <div class="section" id="s3">
+    <div class="section-header">
+      <div class="section-number">3</div>
+      <h2>Information We Collect</h2>
+    </div>
+
+    <h3>a) Authentication Information</h3>
+    <p>
+      When you log in, the App uses Keycloak OAuth 2.0 with PKCE (OpenID Connect) to authenticate
+      you through your organization's identity provider. We collect:
+    </p>
+    <ul>
+      <li>Access tokens, refresh tokens, and ID tokens provided by the identity server</li>
+      <li>
+        Basic profile information returned by the identity server (name, email address) via the
+        <code>openid</code>, <code>profile</code>, and <code>email</code> OAuth scopes
+      </li>
+    </ul>
+    <div class="highlight">
+      We do <strong>not</strong> collect or store your password. Authentication is handled entirely
+      by your organization's Keycloak identity server.
+    </div>
+
+    <h3>b) Usage Preferences</h3>
+    <p>The App stores the following locally on your device using SharedPreferences:</p>
+    <ul>
+      <li>Theme mode preference (light / dark)</li>
+      <li>API server configuration URL</li>
+    </ul>
+
+    <h3>c) Dashboard &amp; Business Data</h3>
+    <p>
+      The App displays business intelligence data (charts, KPIs, reports) fetched from your
+      organization's Apache Superset instance. This data is read-only within the App and is not
+      transmitted anywhere other than back to your organization's servers.
+    </p>
+  </div>
+
+  <!-- 4. How We Use Your Information -->
+  <div class="section" id="s4">
+    <div class="section-header">
+      <div class="section-number">4</div>
+      <h2>How We Use Your Information</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Authentication tokens</td>
+            <td>To verify your identity and maintain your session</td>
+          </tr>
+          <tr>
+            <td>User profile (name, email)</td>
+            <td>To personalize your in-app experience</td>
+          </tr>
+          <tr>
+            <td>Theme preference</td>
+            <td>To remember your display settings between sessions</td>
+          </tr>
+          <tr>
+            <td>Server configuration</td>
+            <td>To connect to your organization's BI backend</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="highlight">
+      We do <strong>not</strong> use your data for advertising, profiling, or any purpose beyond
+      operating the App's core functionality.
+    </div>
+  </div>
+
+  <!-- 5. Data Storage -->
+  <div class="section" id="s5">
+    <div class="section-header">
+      <div class="section-number">5</div>
+      <h2>Data Storage</h2>
+    </div>
+    <ul>
+      <li>
+        <strong>On-device:</strong> Authentication tokens and preferences are stored locally on your
+        device using encrypted SharedPreferences.
+      </li>
+      <li>
+        <strong>Organizational servers:</strong> All business intelligence data resides on your
+        organization's servers (Keycloak and Apache Superset). The App only retrieves and displays
+        this data; it does not store BI data locally beyond in-memory caching during your session.
+      </li>
+      <li>
+        <strong>No third-party cloud storage:</strong> We do not send your data to any third-party
+        cloud services.
+      </li>
+    </ul>
+  </div>
+
+  <!-- 6. Data Sharing -->
+  <div class="section" id="s6">
+    <div class="section-header">
+      <div class="section-number">6</div>
+      <h2>Data Sharing</h2>
+    </div>
+    <p>
+      We do not sell, rent, or share your personal information with third parties. Data is exchanged
+      only between the App and your organization's own servers:
+    </p>
+    <ul>
+      <li><strong>Keycloak identity server</strong> (tcbbank.co.tz) — for authentication</li>
+      <li><strong>Apache Superset</strong> — for fetching business intelligence data</li>
+    </ul>
+  </div>
+
+  <!-- 7. Third-Party Services -->
+  <div class="section" id="s7">
+    <div class="section-header">
+      <div class="section-number">7</div>
+      <h2>Third-Party Services &amp; SDKs</h2>
+    </div>
+    <p>
+      The App uses the following third-party libraries. None of them collect personal data
+      independently:
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Library</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>flutter_appauth</code></td>
+            <td>Handles OAuth 2.0 / OpenID Connect authentication</td>
+          </tr>
+          <tr>
+            <td><code>dio</code></td>
+            <td>HTTP networking</td>
+          </tr>
+          <tr>
+            <td><code>fl_chart</code> / <code>syncfusion_flutter_pdfviewer</code></td>
+            <td>Data visualization and PDF viewing</td>
+          </tr>
+          <tr>
+            <td><code>google_fonts</code></td>
+            <td>Typography (fonts loaded at startup)</td>
+          </tr>
+          <tr>
+            <td><code>shared_preferences</code></td>
+            <td>Local device storage</td>
+          </tr>
+          <tr>
+            <td><code>go_router</code></td>
+            <td>In-app navigation</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <strong>Note on Google Fonts:</strong> The App loads the "Plus Jakarta Sans" font from Google
+      Fonts at startup. This involves a network request to Google's servers. Google's privacy policy
+      applies to this request. See:
+      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">
+        https://policies.google.com/privacy
+      </a>
+    </div>
+  </div>
+
+  <!-- 8. Session Management -->
+  <div class="section" id="s8">
+    <div class="section-header">
+      <div class="section-number">8</div>
+      <h2>Session Management</h2>
+    </div>
+    <ul>
+      <li>Authentication tokens are stored locally and used to maintain your session.</li>
+      <li>
+        When you log out, all tokens are cleared from the device and an end-session request is sent
+        to the Keycloak server.
+      </li>
+      <li>
+        If your session expires, the App will automatically attempt a token refresh. If the refresh
+        fails, you will be redirected to the login screen.
+      </li>
+    </ul>
+  </div>
+
+  <!-- 9. Data Retention -->
+  <div class="section" id="s9">
+    <div class="section-header">
+      <div class="section-number">9</div>
+      <h2>Data Retention</h2>
+    </div>
+    <ul>
+      <li>Authentication tokens are retained on-device until you log out or uninstall the App.</li>
+      <li>
+        Preferences (theme, server URL) are retained until you uninstall the App or manually clear
+        app data.
+      </li>
+      <li>
+        Business data is held only in memory during your active session and is not persisted to disk.
+      </li>
+    </ul>
+  </div>
+
+  <!-- 10. Security -->
+  <div class="section" id="s10">
+    <div class="section-header">
+      <div class="section-number">10</div>
+      <h2>Security</h2>
+    </div>
+    <ul>
+      <li>
+        Authentication uses OAuth 2.0 Authorization Code flow with PKCE, an industry-standard secure
+        authentication protocol.
+      </li>
+      <li>All communication with servers uses HTTPS/TLS.</li>
+      <li>We do not store passwords or sensitive credentials.</li>
+    </ul>
+  </div>
+
+  <!-- 11. Children's Privacy -->
+  <div class="section" id="s11">
+    <div class="section-header">
+      <div class="section-number">11</div>
+      <h2>Children's Privacy</h2>
+    </div>
+    <p>
+      The App is intended exclusively for authorized business users of TCB Bank. It is not directed
+      at children under the age of 13. We do not knowingly collect personal information from children.
+    </p>
+  </div>
+
+  <!-- 12. Your Rights -->
+  <div class="section" id="s12">
+    <div class="section-header">
+      <div class="section-number">12</div>
+      <h2>Your Rights</h2>
+    </div>
+    <p>Depending on your jurisdiction, you may have rights to:</p>
+    <ul>
+      <li>Access the personal data held about you</li>
+      <li>Request correction or deletion of your data</li>
+      <li>Withdraw consent</li>
+    </ul>
+    <p>
+      Since most data is managed by your organization's identity provider (Keycloak), please contact
+      your organization's IT / data team for data access or deletion requests.
+    </p>
+  </div>
+
+  <!-- 13. Changes to This Policy -->
+  <div class="section" id="s13">
+    <div class="section-header">
+      <div class="section-number">13</div>
+      <h2>Changes to This Policy</h2>
+    </div>
+    <p>
+      We may update this Privacy Policy from time to time. We will notify users of significant
+      changes by updating the "Last Updated" date at the top of this document. Continued use of the
+      App after changes constitutes acceptance.
+    </p>
+  </div>
+
+  <!-- 14. Contact Us -->
+  <div class="contact-card" id="s14">
+    <h2>14. Contact Us</h2>
+    <p>If you have any questions about this Privacy Policy, please contact:</p>
+    <p><strong>Softnet</strong></p>
+    <p>Email: <a href="mailto:support@softnet.co.tz">support@softnet.co.tz</a></p>
+    <p>
+      Privacy Policy URL:
+      <a href="https://softbi-privacypolicy.netlify.app" target="_blank" rel="noopener">
+        softbi-privacypolicy.netlify.app
+      </a>
+    </p>
+  </div>
+
+</div>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer>
+  <p>
+    &copy; 2026 <strong>Softnet</strong>. All rights reserved. &nbsp;|&nbsp;
+    Soft BI Privacy Policy &nbsp;|&nbsp;
+    <a href="mailto:support@softnet.co.tz">support@softnet.co.tz</a>
+  </p>
+</footer>
+
+</body>
+</html>
